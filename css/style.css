@@ -2,6 +2,29 @@
     color: #ff0000;
 }
 
+.item{
+    margin-left: 8px;
+}
+.highlightBlue{
+    color: blue;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: cadetblue;
+}
 .highlight2{
     background-color: #ff0;
+}
+
+.box-button{
+    width: 100px;
+    height: 20px;
+    background-color: #ccf;
+
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
