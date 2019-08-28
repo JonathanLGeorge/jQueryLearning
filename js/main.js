@@ -66,5 +66,19 @@ $(document).ready(function(){
         ', which will award you ' + gameAward + ' points for its level ' + gameDifficulty +
         ' difficulty.');
     });
+/*
+    $('#input-name').on('keydown', function(){
+        let name = $(this).val();
+        $('#feedback-message2').text('Pleased to meet you, ' + name);
+    });
+*/
+    $('#input-name').on('keyup', function(){
+        let name = $(this).val();
+        $('#feedback-message2').text('Pleased to meet you, ' + name);
+    });
 
+    $('a').on('click', function(event){
+        event.preventDefault();
+        $('#feedback-message2').text("thats cool");
+    });
 });
