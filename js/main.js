@@ -81,4 +81,30 @@ $(document).ready(function(){
         event.preventDefault();
         $('#feedback-message2').text("thats cool");
     });
+
+
+    //added duplicate html 
+    $('#button-create-item').on('click', function(){
+        let name = $('#input-create-item').val();
+        $('#input-create-item').val('');
+        console.log("button pressed, '" + name + "' saved");
+        let html = "";
+        html += '<div class="items">';
+        html +='<div class="city-name">' + name + '</div>';
+        html +='<img src="assets/oakland.jpg"></img>';
+        html +='<div class="description">Port city by the bay</div>';
+        html +='<div class="price">$2000</div>';
+        html += '<button class="item-add">Add to cart</button>';
+        html +='<button class="item-remove">remove</button>';
+        html += '<br/>';
+        html += '<a href="#">more info</a>'
+        html += '<div class="more-info">The rent is too damn high</div>'
+        html += '</div>'
+
+        $('#container7').prepend(html);
+    });
+    //removing 
+    $('#container7').on('click','.item-remove', function(){
+        $(this).parent().remove();
+    });
 });
