@@ -47,6 +47,7 @@ $(document).ready(function(){
         $(this).addClass('highlight2');
     });
 */
+console.log(/[0-9{2}:[0-9]{2}:[0-9]{2}/);
     $('.box').on('click', '.box-button', function(){
         console.log("clicked inside the box");
         $(this).parent().toggleClass('highlight2');
@@ -108,3 +109,4 @@ $(document).ready(function(){
         $(this).parent().remove();
     });
 });
+console.log(typeof(42));
