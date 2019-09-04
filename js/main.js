@@ -143,32 +143,73 @@ console.log(/[0-9{2}:[0-9]{2}:[0-9]{2}/);
         $(this).parent().remove();
     });
 
-    /*
+    $.ajax('data/item.json', {
+        dataType: 'json',
+        contentType: 'application/json',
+        cache: false
+      })
+      .done(function(response){
+        let items = response.items;
+        items.forEach(function(item){
+          addItem(item.id, item.name, item.description, item.price, item.moreInfo);
+        });
+      })
+      .fail(function(request, errorType, errorMessage){
+        console.log(errorMessage);
+      })
+      .always(function(){
+    
+      });
+
+
+
+
+   
+   $('#container8').on('click','.item-add',function(){
+    let id = $(this).parent().data('id');
+ /*
     $.ajax("data/item.json", function(responnse){
         console.log(response);
     });
     */
-    $.ajax('data/item.json', {
-        dataType: "json", 
-        contentTpye: 'application/json',
-        cache: false
+    $.ajax('data/addToCart.json', {
+      type: 'post',
+      data: { id: id },
+      dataType: 'json',
+      contentType: 'application/json'
     })
-        .done(function(response){
-            let items = response.items;
-            console.log("hello Jonathan");
-            
-            items.forEach(function(item){
-                console.log(item);
-                addItem(item.id, item.name, item.description, item.price, item.moreInfo);
-            });
-        })
-        .fail(function(request, errorType, errorMessage){
-            console.log(errorMessage);
-        })
-        .always(function(){
+    .done(function(response) {
+      if (response.message === 'success') {
+        let price = response.price;
 
-        });
+        cart += price;
 
-    
+        $('#cart-container').text('$' + cart);
+      }
+    });
+  });
+
+  $('#newsletter-checkbox').on('change',function(){
+    if ($(this).is(':checked')) {
+      $('#newsletter-frequency').fadeIn();
+    } else {
+      $('#newsletter-frequency').fadeOut();
+    }
+  });
+  $('#newsletter-checkbox').trigger('change');
+
+  $('#cart-form').on('submit',function(event){
+    event.preventDefault();
+
+    let data = { form: $(this).serialize(), price: cart };
+
+    $.ajax($(this).attr('action'), {
+      type: 'post',
+      data: data
+    })
+    .done(function(response){
+      $('#feedback-message').text(response.message);
+    });
+  });
    
 });

@@ -39,7 +39,12 @@ body{
     margin: 12px;
     height: 100%;
 }
-
+#cart-container{
+    width: 100%;
+    background-color: #000;
+    color: #FFF;
+    padding: 12px;
+}
 .items{
     width: 200px;
     background-color: #DDD;
