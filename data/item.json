@@ -1,0 +1,18 @@
+{
+    "items": [{
+        "name": "Oakland", 
+        "description": "A cool place to live by the bay",
+        "price": 2000,
+        "more-info": "The rent is to damn high!"
+    },{
+        "name": "Alameda", 
+        "description": "A rich place to live by the bay",
+        "price": 2500,
+        "more-info": "The rent is TOO DAMN HIGH!" 
+    },{
+        "name": "Hayward", 
+        "description": "A cool place to go to school",
+        "price": 1750,
+        "more-info": "The rent is pretty damn high!"
+    }]
+}

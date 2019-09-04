@@ -1,3 +1,24 @@
+//ajax stuff
+var cart =0;
+function addItem(id, name, description, price, moreInfo){
+    let html = "";
+        html += '<div class="items" data-id="' + id + '">';
+        html +='<div class="city-name">' + name + '</div>';
+        html +='<img src="assets/oakland.jpg"></img>';
+        html +='<div class="description">' + description + '</div>';
+        html +='<div class="price">' + price + '</div>';
+        html += '<button class="item-add">Add to cart</button>';
+        html +='<button class="item-remove">remove</button>';
+        html += '<br/>';
+        html += '<a class="more-info-link" href="#">more info</a>'
+        html += '<div class="more-info">' +moreInfo+ '</div>'
+        html += '</div>'
+
+        $('#container8').prepend(html);
+}
+
+
+
 //when the document is ready do whatever the function wants to do
 $(document).ready(function(){
     console.log("we are ready");
@@ -98,15 +119,56 @@ console.log(/[0-9{2}:[0-9]{2}:[0-9]{2}/);
         html += '<button class="item-add">Add to cart</button>';
         html +='<button class="item-remove">remove</button>';
         html += '<br/>';
-        html += '<a href="#">more info</a>'
+        html += '<a class="more-info-link" href="#">more info</a>'
         html += '<div class="more-info">The rent is too damn high</div>'
         html += '</div>'
 
         $('#container7').prepend(html);
     });
+
+    $('#container8').on('click', '.more-info-link', function(event){
+        event.preventDefault();
+        //you can add time in the toggle(1000) and it has a fade effect
+        //or we can use fadeToggle() or slideToggle()
+        $(this).parent().find('.more-info').fadeToggle('slow');
+
+        //adding simple animations to the moreinfo link
+        $(this)
+            //added  opacity animation 
+            .animate({"opacity": 0.1, "margin-left": 20}, "fast")
+            .animate({"opacity": 1.0, "margin-left": 0}, "slow");
+    });
     //removing 
     $('#container7').on('click','.item-remove', function(){
         $(this).parent().remove();
     });
+
+    /*
+    $.ajax("data/item.json", function(responnse){
+        console.log(response);
+    });
+    */
+    $.ajax('data/item.json', {
+        dataType: "json", 
+        contentTpye: 'application/json',
+        cache: false
+    })
+        .done(function(response){
+            let items = response.items;
+            console.log("hello Jonathan");
+            
+            items.forEach(function(item){
+                console.log(item);
+                addItem(item.id, item.name, item.description, item.price, item.moreInfo);
+            });
+        })
+        .fail(function(request, errorType, errorMessage){
+            console.log(errorMessage);
+        })
+        .always(function(){
+
+        });
+
+    
+   
 });
-console.log(typeof(42));
