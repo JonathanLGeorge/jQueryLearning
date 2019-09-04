@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/main.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <div id="container">
+            <h4>Hot stuff</h4>
+            <ul>
+                <li class="non-solid">Fire</li>
+                <li class="solid">Lava</li>
+                <li class="non-solid">Steam</li>
+            </ul>
+            <h4>Cold stuff</h4>
+            <ul>
+                <li class="solid">Snow</li>
+                <li class="solid">Ice</li>
+                <li class="non-solid">Rain</li>
+                <ul>
+                    <li class="non-solid">Heavy rain</li>
+                    <li class="non-solid">Light rain</li>
+                </ul>
+            </ul>
+        </div>
+        <div id="container2">
+            <input type="text" placeholder="Name" required></input>
+            <br/>
+            <input type="text" placeholder="Last Name" required></input>
+            <br/>
+            <input type="text" placeholder="Email" required></input>
+            <br/>
+            <button>Submit</button>
+        </div>
+        <div id="container3">
+            <div class="title">Hot</div>
+            <div class="hot">
+                <div class="item non-solid">Fire</div>
+                <div class="item solid">Lava</div>
+                <div class="item non-solid">Steam</div>
+            </div>
+            <br/>
+            <div class="title">Cold</div>
+            <div class="Cold">
+                <div class="item solid">Ice</div>
+                <div class="item non-solid" id="snow">Snow</div>
+                <div class="item non-solid">Rain</div>
+            </div>
+        </div>
+
+        <div id="container4">
+            <div class="box">
+                <div class="box-button">Click me!</div>
+            </div>
+        </div>
+
+        <div id="container5">
+            <select id="select-menu">
+                
+                <option value="1" data-award="5">light game</option>
+                <option value="2" data-award="10">light-medium game</option>
+                <option value="3" data-award="20">medium game</option>
+                <option value="4" data-award="35">medium-heavy game</option>
+                <option value="5" data-award="55">heavy game</option>
+            </select>
+            <div id="feedback-message">
+
+            </div>
+        </div>
+
+        <div id="container6">
+            <input id="input-name" type="text" placeholder="Tell me your name"></input>
+            <!--a tag that will have its defualt behavior changed main.js line 80-83 -->
+            <a href="">I dont want to give out my name</a>
+            <div id="feedback-message2">
+            </div>
+        </div>
+        <br/>
+
+        <div id="admin-container">
+            <input id="input-create-item" type="text"></input>
+            <button id="button-create-item">add</button>
+           
+        </div>
+        <div id="container7">
+            <div class="items">
+                <div class="city-name">Oakland</div>
+                <img src="assets/oakland.jpg"></img>
+                <div class="description">Port city by the bay</div>
+                <div class="price">$2000</div>
+                <button class="item-add">Add to chart</button>
+                <button class="item-remove">remove</button>
+                <br/>
+                <a class="more-info-link" href="#">more info</a>
+                <div class="more-info">The rent is too damn high</div>
+            </div>
+        </div>
+        <div id="container8"></div>>
+        <div id="cart-container">
+                $0
+              </div>
+              <div id="user-data">
+                <form id="cart-form" method="post" action="data/cartSubmit.json">
+                  <br/>
+                  <label>Name</label>
+                  <input name="name" type="text"></input>
+                  <br/>
+                  <label>Email</label>
+                  <input name="email" type="text"></input>
+                  <br/>
+                  <label>Newsletter?</label>
+                  <input name="wantNewsletter" id="newsletter-checkbox" checked type="checkbox"></input>
+                  <br/>
+                  <select name="newsletterFrequency" id="newsletter-frequency">
+                    <option>-</option>
+                    <option selected>Weekly</option>
+                    <option>Monthly</option>
+                  </select>
+                  <br/>
+                  <button id="submit-cart">Submit</button>
+                </form>
+                <div id="feedback-message"></div>
+              </div>
+              <div id="container">
+                <br style="clear: left;" />
+              </div>
+        
+    </body>
+</html>
